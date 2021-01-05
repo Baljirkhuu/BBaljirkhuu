@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Calculator </title>
+</head>
+<style type="text/css">
+	body{
+		margin: 0;
+		padding: 0;
+		background: #ccc;
+	}
+	#container{
+		display: flex;
+		justify-content: center;
+		margin: 200px 0;
+	}
+	#calcu{
+		border: 5px solid #000;
+		padding: 20px;
+	}
+	input{
+		width: 206px;
+		height: 40px;
+		outline: none;
+		font-size: 20px;
+		font-weight: 700;
+	}
+	button{
+		height: 50px; 
+		width: 50px;
+		transition: .3s;
+		font-size: 18px;
+		font-weight: 700;
+		outline: none;
+	}
+	button:hover{
+		transition: .3s;
+		transform: scale(1.1);
+	}
+</style>
+<body>
+	<div id="container">
+		<div id="calcu">
+            <table>
+                <tr>
+                    <input id="myInput">
+                </tr>
+                <tr>
+                    <td><button onclick="insert(7)">7</button></td>
+                    <td><button onclick="insert(8)">8</button></td>
+                    <td><button onclick="insert(9)">9</button></td>
+                    <td><button onclick="insert('*')">*</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="insert(4)">4</button></td>
+                    <td><button onclick="insert(5)">5</button></td>
+                    <td><button onclick="insert(6)">6</button></td>
+                    <td><button onclick="insert('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="insert(1)">1</button></td>
+                    <td><button onclick="insert(2)">2</button></td>
+                    <td><button onclick="insert(3)">3</button></td>
+                    <td><button onclick="insert('-')">_</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="clean()">C</button></td>
+                    <td><button onclick="insert(0)">0</button></td>
+                    <td><button onclick="insert('/')">/</button></td>
+                    <td><button onclick="equal()">=</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<script>
+    function insert(bod){
+        var input = document.getElementById("myInput")
+        input.value = input.value + bod
+    }
+    function clean(){
+        var input = document.getElementById("myInput")
+        input.value = input.value.substring(0,input.value.length-1)
+    }
+    function equal(){
+        var input = document.getElementById("myInput")
+        input.value = eval(input.value)
+        setTimeout(cleaner,1500)
+    }
+    function cleaner(){
+        var input = document.getElementById("myInput")
+        input.value = " "
+    }
+</script>
+</body>
+</html>
